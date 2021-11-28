@@ -52,6 +52,13 @@ async def handler(websocket, path):
                 print("<", msg)
                 name = websocket.request_headers.get("name")
                 room_id = websocket.request_headers.get("room_id")
+                response = requests.put(BASE +'message',json={
+            "roomname": room_id,
+            "name": name,
+            "msg" :  msg,
+            "time": time.time()
+    })
+                
                 for ws in connections:
                     ws_room_id = ws.request_headers.get("room_id")
                     if ws_room_id == room_id:
@@ -59,13 +66,6 @@ async def handler(websocket, path):
                     "room": room_id,
                     "name": name
                     })
-                        response = requests.put(BASE +'message',json={
-                    "roomname": room_id,
-                    "name": name,
-                    "msg" :  msg,
-                    "time": time.time()
-            })
-                        print(msg)
                         asyncio.ensure_future(ws.send(name +": "+ msg))
 
 start_server = websockets.serve(handler, 'localhost', 8765)
