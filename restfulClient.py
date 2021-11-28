@@ -6,11 +6,6 @@ from services.timerOnPromtservice import timerOnPrompt
 
 BASE = "http://127.0.0.1:5000/"
 
-IP = "127.0.0.1"
-
-
-# room=""
-# my_username=""
 isValid=False
 isServerOn=False
 proccess=True

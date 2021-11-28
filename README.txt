@@ -8,18 +8,29 @@ a. Program description:
         CLI chat room name based users gives username and room name to connect with each other
 
 b. Running the program:
-        1. have mongoDB online
+        1. ^have mongoDB online
         2. run restfulApi.py with 'python3 + restfulApi.py'
-        3. run restfulClient with 'python3 + restfulClient'
+        3. run websocketserver.py
+        4. run websocketclient.py (for non-socketing implementation run restfulClient.py) 
         4. enjoy the chat.
-        5. to leave your chat room press cntrl+C
-        6. to kill the program press cntrl+C on login prompt.
+        5. to kill the program use cntrl + C
 
 
 c. disclaimer:
-        1. prompt input limitations: only 5 seconds to give his text input.
-           and then the server pull will reset his input can be fixed with another listener that will store 
-           typed chars that wasnt sent and concat them to the empty string after the pull reset.
-           or with the help of threading. (didnt implement cause socketing will solve the problem)  
-        2. so far the program is only fulfilling the demands of the 4 first milestones (3 left).
-        3. poor data managment - delete from data base and update exisiting values are not supported.
+        1. prompt input limitations: on CLI while asking for input not refreshing recieved msgs properly
+           since the loop is syncrounous. must press ENTER to see msgs recieved from the
+           server.
+        2. so far the program is fulfilling the demands of the 5 first milestones (no Bonuses
+           e.g. no username has seen your message and authentication).
+        3. fail connection errors unhandled. 
+        4. NO DockerFile!
+
+
+
+
+
+
+^ mongo db online:
+MacBook-Pro root path/ % sudo mkdir -p /System/Volumes/data/db 
+MacBook-Pro root path/ % sudo chown -R `id -un` /System/Volumes/data/db
+MacBook-Pro root path/ % sudo mongod --dbpath /System/Volumes/data/db

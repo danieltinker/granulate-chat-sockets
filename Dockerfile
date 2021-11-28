@@ -1,6 +1,0 @@
-
-FROM
-
-COPY
-
-RUN

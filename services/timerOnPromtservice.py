@@ -2,8 +2,6 @@ import requests
 from pytimedinput import timedInput
 import time
 
-from restfulApi import Room 
-
 def timerOnPrompt(BASE,room,my_username): 
     # def timedInput(prompt="", timeout=5, resetOnInput=True, maxLength=0, allowCharacters="", endCharacters="\x1b\n\r")
     userText, timedOut = timedInput("> ",5)
