@@ -15,14 +15,13 @@ b. Running the program:
         4. enjoy the chat.
         5. to kill the program use cntrl + C
 
-
 c. disclaimer:
-        1. prompt input limitations: on CLI while asking for input not refreshing recieved msgs properly
+        1. prompt limitations: on CLI while asking for input not refreshing recieved msgs properly
            since the loop is syncrounous. must press ENTER to see msgs recieved from the
            server.
         2. so far the program is fulfilling the demands of the 5 first milestones (no Bonuses
            e.g. no username has seen your message and authentication).
-        3. fail connection errors unhandled. 
+        3. fail connection to server error unhandled. 
         4. NO DockerFile!
 
 
