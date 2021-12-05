@@ -18,6 +18,7 @@ def getchathistory(websocket,room_id):
                        
                         
 async def handler(websocket, path):
+    
     global n
     if path == "/sub":
         n = n + 1
@@ -25,6 +26,9 @@ async def handler(websocket, path):
         connections.add(websocket)
         name = websocket.request_headers.get("name")
         room_id = websocket.request_headers.get("room_id")
+        # if(room_id ==None or name ==None or name ==""or room_id ==""):
+        #     asyncio.ensure_future(ws.send("Invalid input: no name or room was given "))
+        # else:    
         print("adding subscriber #", name)
         getchathistory(websocket,room_id)
         async for msg in websocket:
@@ -36,7 +40,7 @@ async def handler(websocket, path):
                 "name": name,
                 "msg" :  msg,
                 "time": time.time()
-               })
+                })
         
             for ws in connections:
                 ws_room_id = ws.request_headers.get("room_id")
